@@ -1,4 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: test-deployment
+  name: iron-gallery-deployment-xfusion
+  namespace: iron-namespace-xfusion
+  labels:
+    run: iron-gallery
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: iron-gallery
+  template:
+    metadata:
+      labels:
+        run: iron-gallery
