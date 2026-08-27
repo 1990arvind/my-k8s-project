@@ -2,3 +2,18 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
 name: test-deployment
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iron-gallery-service-xfusion
+  namespace: iron-namespace-xfusion
+spec:
+  type: NodePort
+  selector:
+    run: iron-gallery
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 32678
